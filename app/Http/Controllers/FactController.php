@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Fact;
 use Illuminate\Http\Request;
+use Telegram\Bot\Laravel\Facades\Telegram;
 
 class FactController extends Controller
 {
@@ -15,5 +16,10 @@ class FactController extends Controller
         foreach ($json->data as $item) {
             Fact::updateOrCreate(['fact' => $item->fact]);
         }
+    }
+
+    public function me()
+    {
+        return Telegram::getMe();
     }
 }

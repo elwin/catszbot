@@ -12,3 +12,4 @@
 */
 
 Route::get('/', 'FactController@import')->name('cat.import');
+Route::get('/telegram', 'FactController@me');
