@@ -2,9 +2,9 @@
 
 namespace App\Commands;
 
+use App\Repository\FactRepository;
 use Telegram\Bot\Actions;
 use Telegram\Bot\Commands\Command;
-use Telegram\Bot\Laravel\Facades\Telegram;
 
 class FactCommand extends Command
 {
@@ -25,17 +25,8 @@ class FactCommand extends Command
     {
         $this->replyWithChatAction(['action' => Actions::TYPING]);
 
-        $keyboard = ['catfact'];
+        $fact = FactRepository::getFact();
 
-        $reply_markup = Telegram::replyKeyboardMarkup([
-            'keyboard' => $keyboard,
-            'resize_keyboard' => true,
-            'one_time_keyboard' => false
-        ]);
-
-        $this->replyWithMessage([
-            'text' => 'Welcome to Catfacts! Request your daily facts by typing /catfact',
-            'reply_markup' => $reply_markup
-        ]);
+        $this->replyWithMessage(['text' => "Catfact {$fact->id}: {$fact->fact} \n\n🐈"]);
     }
 }
