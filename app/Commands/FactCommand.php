@@ -6,7 +6,7 @@ use App\Repository\FactRepository;
 use Telegram\Bot\Actions;
 use Telegram\Bot\Commands\Command;
 
-class FactCommand extends Command
+class StartCommand extends Command
 {
     /**
      * @var string Command Name
