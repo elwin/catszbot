@@ -22,4 +22,18 @@ class FactController extends Controller
     {
         return Telegram::getMe();
     }
+
+    public function webhook()
+    {
+        $updates = Telegram::getWebhookUpdates();
+
+        return $updates;
+    }
+
+    public function setWebhook()
+    {
+        $response = Telegram::setWebhook(['url' => route('webhook')]);
+
+        return $response;
+    }
 }
