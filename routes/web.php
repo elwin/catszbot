@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/', 'FactController@import')->name('fact.import');
 Route::get('/me', 'FactController@me');
-Route::get('/catfact', 'FactController@fact');
+Route::get('/', 'FactController@fact');
+Route::get('/import', 'FactController@import')->name('fact.import');
 Route::post('/webhook', 'FactController@webhook')->name('webhook');
 Route::get('/webhook', 'FactController@setWebhook')->name('webhook.set');
