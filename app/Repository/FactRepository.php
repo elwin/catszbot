@@ -9,7 +9,7 @@ class FactRepository
 {
     public static function getFact()
     {
-        $fact = Fact::orderBy('count')->first();
+        $fact = Fact::inRandomOrder()->orderBy('count')->first();
         $fact->increment('count');
 
         return $fact;
