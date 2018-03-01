@@ -11,10 +11,6 @@
 |
 */
 
-if (env('APP_ENV') === 'production') {
-    URL::forceSchema('https');
-}
-
 Route::get('/', 'FactController@import')->name('fact.import');
 Route::get('/telegram', 'FactController@me');
 Route::post('/webhook', 'FactController@webhook')->name('webhook');
