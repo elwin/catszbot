@@ -25,9 +25,9 @@ class FactController extends Controller
 
     public function webhook()
     {
-        $updates = Telegram::getWebhookUpdates();
+        $update = Telegram::commandsHandler(true);
 
-        return $updates;
+        return $update;
     }
 
     public function setWebhook()
