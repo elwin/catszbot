@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Fact;
+use App\Repository\FactRepository;
 use Illuminate\Http\Request;
 use Telegram\Bot\Laravel\Facades\Telegram;
 
@@ -21,6 +22,11 @@ class FactController extends Controller
     public function me()
     {
         return Telegram::getMe();
+    }
+
+    public function fact()
+    {
+        return FactRepository::getFact();
     }
 
     public function webhook()

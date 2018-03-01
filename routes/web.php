@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'FactController@import')->name('fact.import');
-Route::get('/telegram', 'FactController@me');
+Route::get('/me', 'FactController@me');
+Route::get('/catfact', 'FactController@fact');
 Route::post('/webhook', 'FactController@webhook')->name('webhook');
 Route::get('/webhook', 'FactController@setWebhook')->name('webhook.set');
