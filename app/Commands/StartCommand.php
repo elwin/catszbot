@@ -25,7 +25,7 @@ class StartCommand extends Command
     {
         $this->replyWithChatAction(['action' => Actions::TYPING]);
 
-        $keyboard = ['catfact'];
+        $keyboard = [['catfact']];
 
         $reply_markup = Telegram::replyKeyboardMarkup([
             'keyboard' => $keyboard,
