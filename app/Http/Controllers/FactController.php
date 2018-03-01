@@ -32,8 +32,6 @@ class FactController extends Controller
 
     public function setWebhook()
     {
-        return route('webhook');
-
         $response = Telegram::setWebhook(['url' => route('webhook')]);
 
         return $response;
