@@ -27,6 +27,6 @@ class FactCommand extends Command
 
         $fact = FactRepository::getFact();
 
-        $this->replyWithMessage(['text' => "{$fact->fact} 🐈"]);
+        $this->replyWithMessage(['text' => "Catfact {$fact->id}: {$fact->fact} \n🐈"]);
     }
 }
