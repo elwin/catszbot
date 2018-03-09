@@ -39,6 +39,9 @@ class StartCommand extends Command
             'reply_markup' => $reply_markup
         ]);
 
-        Cache::put('tele', $arguments);
+        $this->replyWithMessage([
+            'text' => $arguments
+        ]);
+
     }
 }
