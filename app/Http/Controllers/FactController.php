@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Fact;
 use App\Repository\FactRepository;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Telegram\Bot\Laravel\Facades\Telegram;
@@ -35,8 +36,18 @@ class FactController extends Controller
         return FactRepository::getFact();
     }
 
-    public function webhook()
+    public function webhook(Request $request)
     {
+        $user = User::updateOrCreate([
+            'id' => $request->message['from']['id'],
+            'name' => $request->message['from']['first_name'],
+            'username' => $request->message['from']['username']
+        ]);
+
+        $user->messages()->create([
+            'message' => $request->message
+        ]);
+
         $update = Telegram::commandsHandler(true);
 
         return $update;

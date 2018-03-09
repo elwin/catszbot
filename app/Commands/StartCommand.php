@@ -39,17 +39,5 @@ class StartCommand extends Command
             'text' => 'Welcome to Catfacts! Request your daily facts by typing /catfact',
             'reply_markup' => $reply_markup
         ]);
-
-        $user = User::create([
-            'name' => 'Elwin',
-            'username' => 'NYCooookie'
-        ]);
-
-        $message = Message::create([
-            'message' => $arguments,
-            'user_id' => 1
-        ]);
-
-
     }
 }
