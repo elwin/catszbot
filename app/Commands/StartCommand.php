@@ -25,8 +25,6 @@ class StartCommand extends Command
      */
     public function handle($arguments)
     {
-        Log::debug($arguments);
-
         $this->replyWithChatAction(['action' => Actions::TYPING]);
 
         $keyboard = [['/catfact']];
@@ -40,6 +38,10 @@ class StartCommand extends Command
         $this->replyWithMessage([
             'text' => 'Welcome to Catfacts! Request your daily facts by typing /catfact',
             'reply_markup' => $reply_markup
+        ]);
+
+        $this->replyWithMessage([
+            'text' => "{$arguments}"
         ]);
 
 
