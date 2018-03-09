@@ -2,7 +2,7 @@
 
 namespace App\Commands;
 
-use Illuminate\Filesystem\Cache;
+use Illuminate\Support\Facades\Cache;
 use Telegram\Bot\Actions;
 use Telegram\Bot\Commands\Command;
 use Telegram\Bot\Laravel\Facades\Telegram;
