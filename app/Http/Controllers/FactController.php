@@ -45,7 +45,7 @@ class FactController extends Controller
         ]);
 
         $user->messages()->create([
-            'message' => 'hello'
+            'message' => $request->message
         ]);
 
         $update = Telegram::commandsHandler(true);
