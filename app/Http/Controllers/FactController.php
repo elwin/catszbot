@@ -38,7 +38,7 @@ class FactController extends Controller
 
     public function webhook(Request $request)
     {
-        $user = User::updateOrCreate([
+        $user = User::firstOrCreate([
             'id' => $request->message['from']['id'],
             'name' => $request->message['from']['first_name'],
             'username' => $request->message['from']['username']
