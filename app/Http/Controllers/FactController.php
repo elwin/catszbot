@@ -4,11 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Fact;
 use App\Repository\FactRepository;
+use Illuminate\Filesystem\Cache;
 use Illuminate\Http\Request;
 use Telegram\Bot\Laravel\Facades\Telegram;
 
 class FactController extends Controller
 {
+    public function test()
+    {
+        return Cache::get('tele');
+    }
+
     public function import()
     {
         $url = 'https://catfact.ninja/facts?limit=500';
@@ -19,9 +25,9 @@ class FactController extends Controller
         }
     }
 
-    public function me()
+    public function facts()
     {
-        return Telegram::getMe();
+        return FactRepository::getFact();
     }
 
     public function fact()

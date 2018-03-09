@@ -2,6 +2,7 @@
 
 namespace App\Commands;
 
+use Illuminate\Filesystem\Cache;
 use Telegram\Bot\Actions;
 use Telegram\Bot\Commands\Command;
 use Telegram\Bot\Laravel\Facades\Telegram;
@@ -37,5 +38,7 @@ class StartCommand extends Command
             'text' => 'Welcome to Catfacts! Request your daily facts by typing /catfact',
             'reply_markup' => $reply_markup
         ]);
+
+        Cache::put('tele', $arguments);
     }
 }

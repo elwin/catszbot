@@ -14,4 +14,9 @@ class FactRepository
 
         return $fact;
     }
+
+    public static function getFacts()
+    {
+        return Fact::all();
+    }
 }
