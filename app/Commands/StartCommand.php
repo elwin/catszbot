@@ -2,8 +2,8 @@
 
 namespace App\Commands;
 
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Log;
+use App\Message;
+use App\User;
 use Telegram\Bot\Actions;
 use Telegram\Bot\Commands\Command;
 use Telegram\Bot\Laravel\Facades\Telegram;
@@ -40,10 +40,15 @@ class StartCommand extends Command
             'reply_markup' => $reply_markup
         ]);
 
-        $this->replyWithMessage([
-            'text' => "{$arguments}"
+        $user = User::create([
+            'name' => 'Elwin',
+            'username' => 'NYCooookie'
         ]);
 
+        $message = Message::create([
+            'message' => $arguments,
+            'user_id' => 1
+        ]);
 
 
     }
