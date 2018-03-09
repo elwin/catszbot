@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Fact;
 use App\Repository\FactRepository;
-use Illuminate\Filesystem\Cache;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Telegram\Bot\Laravel\Facades\Telegram;
 
 class FactController extends Controller
