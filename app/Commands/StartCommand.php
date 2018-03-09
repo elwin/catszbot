@@ -3,6 +3,7 @@
 namespace App\Commands;
 
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Log;
 use Telegram\Bot\Actions;
 use Telegram\Bot\Commands\Command;
 use Telegram\Bot\Laravel\Facades\Telegram;
@@ -25,7 +26,7 @@ class StartCommand extends Command
     public function handle($arguments)
     {
         Log::debug($arguments);
-        
+
         $this->replyWithChatAction(['action' => Actions::TYPING]);
 
         $keyboard = [['/catfact']];
