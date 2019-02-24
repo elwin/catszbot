@@ -23,6 +23,8 @@ class FactCommand extends Command
      */
     public function handle($arguments)
     {
+        log($arguments);
+
         $this->replyWithChatAction(['action' => Actions::TYPING]);
 
         $fact = FactRepository::getFact();
