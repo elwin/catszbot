@@ -39,16 +39,12 @@ class FactController extends Controller
 
     public function webhook(Request $request)
     {
-        Log::info('Received message');
-
-/*
         $user = User::firstOrCreate([
             'id' => $request->message['from']['id'],
             'name' => $request->message['from']['first_name'],
-            'username' => $request->message['from']['username']
-        ]);*/
+        ]);
 
-        User::first()->messages()->create([
+        $user->messages()->create([
             'message' => json_encode($request->message)
         ]);
 
