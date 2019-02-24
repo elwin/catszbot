@@ -41,13 +41,14 @@ class FactController extends Controller
     {
         Log::info('Received message');
 
+/*
         $user = User::firstOrCreate([
             'id' => $request->message['from']['id'],
             'name' => $request->message['from']['first_name'],
             'username' => $request->message['from']['username']
-        ]);
+        ]);*/
 
-        $user->messages()->create([
+        User::first()->messages()->create([
             'message' => json_encode($request->message)
         ]);
 
