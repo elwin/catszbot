@@ -5,6 +5,8 @@ namespace App\Commands;
 use App\Repository\FactRepository;
 use Telegram\Bot\Actions;
 use Telegram\Bot\Commands\Command;
+use Illuminate\Support\Facades\Log;
+
 
 class FactCommand extends Command
 {
@@ -23,7 +25,7 @@ class FactCommand extends Command
      */
     public function handle($arguments)
     {
-        log($arguments);
+        Log::info('Handles message');
 
         $this->replyWithChatAction(['action' => Actions::TYPING]);
 

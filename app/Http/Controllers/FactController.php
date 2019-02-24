@@ -7,6 +7,7 @@ use App\Repository\FactRepository;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Log;
 use Telegram\Bot\Laravel\Facades\Telegram;
 
 class FactController extends Controller
@@ -38,7 +39,7 @@ class FactController extends Controller
 
     public function webhook(Request $request)
     {
-        log('received message');
+        Log::info('Received message');
 
         $user = User::firstOrCreate([
             'id' => $request->message['from']['id'],
