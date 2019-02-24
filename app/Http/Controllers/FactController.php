@@ -42,6 +42,7 @@ class FactController extends Controller
         $user = User::firstOrCreate([
             'id' => $request->message['from']['id'],
             'name' => $request->message['from']['first_name'],
+            'username' => '...'
         ]);
 
         $user->messages()->create([
